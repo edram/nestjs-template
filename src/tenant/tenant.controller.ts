@@ -1,5 +1,5 @@
 import { Controller, Get, HostParam } from '@nestjs/common';
-import { PrismaService } from 'src/shared/services/prisma.service';
+import { PrismaService } from 'nestjs-prisma';
 
 @Controller({ host: ':tenant.localhost' })
 export class TenantController {

@@ -7,7 +7,7 @@ import { TestService } from 'src/shared/services/test.service';
 @Global()
 @Module({
   imports: [ConfigModule.forRoot({ load: [database] })],
-  providers: [TestService, PrismaService],
-  exports: [TestService, PrismaService, ConfigModule],
+  providers: [TestService],
+  exports: [TestService, ConfigModule],
 })
 export class CoreModule {}
