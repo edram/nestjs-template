@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,6 +11,9 @@ async function bootstrap() {
       enableDebugMessages: true,
     }),
   );
-  await app.listen(3000);
+  await app.listen(3000, async () => {
+    const appServer = await app.getUrl();
+    Logger.log(`App is running on:${appServer}`, `demo`);
+  });
 }
 bootstrap();
